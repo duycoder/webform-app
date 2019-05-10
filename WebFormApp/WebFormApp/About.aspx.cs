@@ -20,7 +20,8 @@ namespace WebFormApp
          */
         protected void Page_PreInit(object sender, EventArgs e)
         {
-            lblEventName.Text += "<br/>" + "PreInit";
+            //base.OnPreInit(e);
+            //lblEventName.Text += "<br/>" + "PreInit";
         }
 
         /*
@@ -33,7 +34,7 @@ namespace WebFormApp
          */
         protected void Page_Init(object sender, EventArgs e)
         {
-
+            //lblEventName.Text = "Init<br/>";
         }
 
         /*
@@ -45,7 +46,7 @@ namespace WebFormApp
          */
         protected void Page_InitComplete(object sender, EventArgs e)
         {
-
+            lblEventName.Text += "InitComplete<br/>";
         }
 
         /*
@@ -57,9 +58,9 @@ namespace WebFormApp
          * - tải viewstate về các control
          * - tải dữ liệu postback: dữ liệu postback được quản lý bởi các "controls"
          */
-        protected void OnPreLoad(object sender, EventArgs e)
+        protected void Page_Preload(object sender, EventArgs e)
         {
-
+            //lblEventName.Text += "Preload<br/>";
         }
 
         /*
@@ -72,7 +73,51 @@ namespace WebFormApp
          */
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblEventName.Text = "LOAD";
+            //lblEventName.Text += "Load<br/>";
+            if (!IsPostBack)
+            {
+
+                //sử dụng delegate
+                //GetName gn = new GetName(GetNameById);
+                //Sum sm = new Sum(GetSum);
+
+
+                //TaxFormulas.TaxFormula salaryFormula = TaxFormulas.GetSalaryFormula("VN");
+                //float vnSalary = 100000;
+
+                //float tax = salaryFormula(vnSalary);
+
+                //Response.Write(string.Format("Thuế tôi cần đóng đó là {0}", tax.ToString("c")));
+                //LoadGender();
+
+                //btnCommand.Command += new CommandEventHandler(btnCommand_Command);
+
+                //Greeting greeting = new Greeting(VnGreeting);
+                //greeting += new Greeting(UsaGreeting);
+                //greeting += new Greeting(EuGreeting);
+
+                //greeting("HELLO");
+
+
+                //Action act = () => Response.Write("!!!!<br/>");
+                //act = () => Response.Write("???<br/>");
+
+                //act();
+
+                //TaxFormulas.TaxFormula f = (float y) => (y * 100);
+
+                //sử dụng elvis operator
+                //People people = new People();
+                //int? height = people?.Height;
+
+                //int? otherHeight = (people == null) ? null : (int?)people.Height;
+
+                //int? anotherHeight = (people?.Height) ?? 0;
+
+                //List<People> gPeople = new List<People>();
+
+                //int count = gPeople?[0].Orders?.Count() ?? 0;
+            }
         }
 
         /*
@@ -86,7 +131,7 @@ namespace WebFormApp
          */
         protected void OnClickMe(object sender, EventArgs e)
         {
-
+            //lblEventName.Text += "OnClickMe<br/>";
         }
 
         /*
@@ -94,9 +139,9 @@ namespace WebFormApp
          *- sử dụng sự kiện này cho các công việc cho các control
          * trên page sau khi được load
          */
-        protected void Load_Complete(object sender, EventArgs e)
+        protected void Page_LoadComplete(object sender, EventArgs e)
         {
-
+            //lblEventName.Text += "Load_Complete<br/>";
         }
 
         /*
@@ -111,9 +156,9 @@ namespace WebFormApp
          * - sử dụng sự kiện để lưu các thay đổi cuối cùng cho nội dung
          * của page và controls trong page
          */
-        protected void OnPreRender(object sender, EventArgs e)
+        protected void Page_PreRender(object sender, EventArgs e)
         {
-
+            //lblEventName.Text += "OnPreRender<br/>";
         }
 
         /*
@@ -122,9 +167,9 @@ namespace WebFormApp
          * - sử dụng sự kiện này để thực hiện tác vụ yêu cầu
          * viewstate được lưu lại nhưng không thay đổi gì các controls
          */
-        protected void OnSaveStateComplete(object sender, EventArgs e)
+        protected void Page_SaveStateComplete(object sender, EventArgs e)
         {
-
+            //lblEventName.Text += "OnSaveStateComplete<br/>";
         }
 
         /**
@@ -139,8 +184,180 @@ namespace WebFormApp
          */
         protected void Page_UnLoad(object sender, EventArgs e)
         {
-            lblEventName.Text = "Unload";
+            //lblEventName.Text += "Unload<br/>";
         }
 
+        protected void txtEventName_TextChanged(object sender, EventArgs e)
+        {
+            //lblEventName.Text = txtEventName.Text;
+        }
+
+        protected void btnSaveInfo_Clicked(object sender, EventArgs e)
+        {
+            Response.Write(rdbTech.SelectedItem.Value);
+        }
+
+        void LoadGender()
+        {
+            ListItem male = new ListItem("Nam", "1");
+            ddlGender.Items.Add(male);
+
+            ListItem female = new ListItem("Nữ", "2");
+            ddlGender.Items.Add(female);
+        }
+
+        public delegate void Greeting(string input);
+
+        public void VnGreeting(string input)
+        {
+            Response.Write($"VN: {input}<br/>");
+        }
+
+        public void UsaGreeting(string input)
+        {
+            Response.Write($"USA: {input}<br/>");
+        }
+
+        public void EuGreeting(string input)
+        {
+            Response.Write($"EUROPEAN: {input}<br/>");
+        }
+
+
+        protected void btnCommand_Command(object sender, CommandEventArgs e)
+        {
+            Response.Write("EVENT COMMAND EXECUTED");
+        }
+
+        public string SayHello(string firstName, string lastName)
+        {
+            //đây là kiểu hàm (string,string) -> string
+            return "Hello " + firstName + " " + lastName;
+        }
+
+        public string SayHello(string firstName)
+        {
+            //đây là kiểu hàm (string) -> string
+            return "Hello " + firstName;
+        }
+
+        public void Silent(string firstName)
+        {
+            //đây là kiểu hàm (string) -> ()
+        }
+
+
+        //cú pháp định nghĩa một delegate
+        //delegate <return_type> <delegate_name> <parameter_list>
+
+        private delegate int Sum(int numb1, int numb2);
+
+        private delegate void GetNothing(int numb1, int numb2);
+
+        private delegate string GetName(int id);
+
+        public string GetNameById(int id)
+        {
+            return id.ToString();
+        }
+
+        public int GetSum(int a, int b)
+        {
+            return a + b;
+        }
+
+
+        public class TaxFormulas
+        {
+            //delegate đại diện cho các hàm (float) -> float
+            public delegate float TaxFormula(float input);
+
+            //công thức tính thuế của mỹ
+            public static float UsaFormula(float salary)
+            {
+                return salary * 10 / 100;
+            }
+
+            //công thức tính thuế của việt nam
+            public static float VnFormula(float salary)
+            {
+                return salary * 5 / 100;
+            }
+
+            public static float EuropeanFormula(float salary)
+            {
+                return salary * 8 / 100;
+            }
+
+            //trả về 1 hàm tính thuế dựa trên mã code
+            public static TaxFormula GetSalaryFormula(string code)
+            {
+                if (code == "VN")
+                {
+                    return new TaxFormula(VnFormula);
+                }
+                else if (code == "US")
+                {
+                    return new TaxFormula(UsaFormula);
+                }
+                else if (code == "EU")
+                {
+                    return new TaxFormula(EuropeanFormula);
+                }
+
+                //trả về một delegate nặc danh có input
+                //return delegate (float salary)
+                //{
+                //    return salary * 7 / 100;
+                //};
+
+                return (float salary) => salary * 7 / 100;
+
+                //return (float salary) => salary * 7 / 100;
+            }
+        }
+
+        public class Button
+        {
+            private string label;
+            public delegate void ClickHandler(Button source, int x, int y);
+
+            public event ClickHandler OnButtonClick;
+
+            public Button(string label)
+            {
+                this.label = label;
+            }
+
+            public void Clicked()
+            {
+                Random random = new Random();
+                int x = random.Next(1, 100);
+                int y = random.Next(1, 20);
+
+                if(OnButtonClick != null)
+                {
+                    OnButtonClick(this, x, y);
+                }
+            }
+
+        }
+
+        public class MyApplication
+        {
+            private Button openButton;
+            private Button saveButton;
+            private string fileName;
+        }
+
+        public class People
+        {
+            public int Height { get; set; }
+            public List<Order> Orders { get; set; }
+        }
+
+        public class Order
+        {
+        }
     }
 }
