@@ -72,6 +72,7 @@ namespace WebFormApp
          */
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblEventName.Text = "LOAD";
         }
 
         /*
@@ -110,5 +111,32 @@ namespace WebFormApp
         {
 
         }
+
+        /*
+         * - sau khi state của page và các control đều đã được lưu
+         * - tất cả các thay đổi của page và control đều được bỏ qua
+         * - sử dụng sự kiện này để thực hiện tác vụ yêu cầu
+         * viewstate được lưu lại nhưng không thay đổi gì các controls
+         */
+        protected void OnSaveStateComplete(object sender, EventArgs e)
+        {
+
+        }
+
+        /**
+         * - sử dụng sự kiện này để clean code
+         * - lúc này các object đều đã được load và an toàn để giải phóng tất cả tài
+         * nguyên còn lại trong page hoặc kể cả page
+         * - sẽ gọi hàm cleanup các controls sau đó đến page
+         * - các contorols và page đều đã được render, vì thế sẽ không có
+         * thay đổi nào được tạo ra trong luồng response
+         * - nếu gọi hàm Response.Write hoặc hàm tương tự sẽ bắn ra "Exception"
+         * 
+         */
+        protected void Page_UnLoad(object sender, EventArgs e)
+        {
+            lblEventName.Text = "Unload";
+        }
+       
     }
 }
