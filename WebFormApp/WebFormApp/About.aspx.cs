@@ -20,7 +20,7 @@ namespace WebFormApp
          */
         protected void Page_PreInit(object sender, EventArgs e)
         {
-
+            lblEventName.Text += "<br/>" + "PreInit";
         }
 
         /*
@@ -45,7 +45,7 @@ namespace WebFormApp
          */
         protected void Page_InitComplete(object sender, EventArgs e)
         {
-            
+
         }
 
         /*
@@ -84,6 +84,10 @@ namespace WebFormApp
          * 
          * 
          */
+        protected void OnClickMe(object sender, EventArgs e)
+        {
+
+        }
 
         /*
          *- tạo ra sau khi các sự kiện "event handling"
@@ -137,6 +141,6 @@ namespace WebFormApp
         {
             lblEventName.Text = "Unload";
         }
-       
+
     }
 }
