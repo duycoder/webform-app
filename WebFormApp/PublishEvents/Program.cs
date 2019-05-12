@@ -46,9 +46,9 @@ namespace PublishEvents
         }
         public abstract void Draw();
 
-        public event EventHandler<ShapeEventArgs> ShapeEventHandler;
+        public virtual event EventHandler<ShapeEventArgs> ShapeEventHandler;
 
-        public void OnShapeChanged(ShapeEventArgs e)
+        protected void OnShapeChanged(ShapeEventArgs e)
         {
             ShapeEventHandler?.Invoke(this, e);
         }
