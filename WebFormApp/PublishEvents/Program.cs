@@ -10,59 +10,122 @@ namespace PublishEvents
     {
         static void Main(string[] args)
         {
-            // The code provided will print ‘Hello World’ to the console.
-            // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
-            Console.WriteLine("Hello World!");
+            Circle c1 = new Circle(4.45);
+            Rectangle r1 = new Rectangle(4.66, 500.1);
+            var shapes = new ShapeContainer();
+            shapes.AddShape(c1);
+            shapes.AddShape(r1);
+            c1.Update(445.4);
+            r1.Update(404.6, 500.144);
             Console.ReadKey();
-
-            // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
         }
     }
 
-    //tạo một class kế thừa "EventArgs" để lưu trữ thông tin của sự kiện
-    class CustomEventArgs : EventArgs
+    public class ShapeEventArgs : EventArgs
     {
-        private string msg;
-        public CustomEventArgs(string s)
+        double area;
+        public double Area
         {
-            msg = s;
+            get { return area; }
+            set { area = value; }
         }
-        public string Message
+
+        public ShapeEventArgs(double area)
         {
-            get { return msg; }
-            set { msg = value; }
+            this.area = area;
         }
     }
 
-    //định nghĩa một lớp sẽ   xuất bản "sự kiện"
-    class Publisher
+    public abstract class Shape
     {
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender">đối tượng "phát ra" sự kiện</param>
-        /// <param name="e">thông tin sự kiện</param>
-        public delegate void CustomEventHandler(object sender, CustomEventArgs e);
-
-        /// <summary>
-        /// khai báo đối tượng "event" chứa các delegate
-        /// </summary>
-        public event CustomEventHandler RaiseEventHandler;
-
-        public void DoSomething()
+        double area;
+        protected double Area
         {
-            OnRaiseCustomEvent(new CustomEventArgs("Do SomeThing"));
+            get { return area; }
+            set { area = value; }
         }
+        public abstract void Draw();
 
-        //wrap event invocations inside a protected virtual methdo
-        //allows derived classes to override the event invocation behavior
-        protected virtual void OnRaiseCustomEvent(CustomEventArgs e)
+        public event EventHandler<ShapeEventArgs> ShapeEventHandler;
+
+        public void OnShapeChanged(ShapeEventArgs e)
         {
-            if (RaiseEventHandler != null)
-            {
-                e.Message += $" at {DateTime.Now}";
-                RaiseEventHandler(this, e);
-            }
+            ShapeEventHandler?.Invoke(this, e);
         }
     }
+
+    public class Rectangle : Shape
+    {
+        double width, height;
+        public Rectangle(double width, double height)
+        {
+            this.width = width;
+            this.height = height;
+            this.Area = this.width * this.height;
+        }
+
+        public void Update(double width, double height)
+        {
+            Console.WriteLine("The old area is {0} \n", this.Area);
+
+            this.width = width;
+            this.height = height;
+            this.Area = this.width * this.height;
+
+            this.OnShapeChanged(new ShapeEventArgs(this.Area));
+        }
+
+        public override void Draw()
+        {
+            Console.WriteLine("Drawing a rectangle \n");
+        }
+    }
+
+    public class Circle : Shape
+    {
+        double radius;
+        public Circle(double radius)
+        {
+            this.radius = radius;
+            this.Area = Math.PI * radius * radius;
+        }
+
+        public void Update(double radius)
+        {
+            Console.WriteLine("The old area is {0} \n", this.Area);
+
+            this.radius = radius;
+            this.Area = Math.PI * radius * radius;
+            this.OnShapeChanged(new ShapeEventArgs(this.Area));
+        }
+
+        public override void Draw()
+        {
+            Console.WriteLine("Drawing a circle \n");
+        }
+    }
+
+    public class ShapeContainer
+    {
+        List<Shape> groupShape;
+
+        public ShapeContainer()
+        {
+            groupShape = new List<Shape>();
+        }
+
+        public void AddShape(Shape shape)
+        {
+            shape.ShapeEventHandler += OnShapeChanged;
+            groupShape.Add(shape);
+        }
+
+        public void OnShapeChanged(object sender, ShapeEventArgs e)
+        {
+            Shape shape = (Shape)sender;
+            shape.Draw();
+            Console.WriteLine("This shape's area is {0} \n", e.Area);
+        }
+    }
+
 }
