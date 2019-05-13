@@ -19,7 +19,6 @@ namespace HelloThread
             thread2.Priority = ThreadPriority.Lowest;
             thread2.Start(); thread1.Start();
 
-
             //Console.WriteLine("Call Write('-') in main Thread...\n");
             //for (int i = 0; i < 50; i++)
             //{

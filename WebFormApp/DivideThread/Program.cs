@@ -39,37 +39,37 @@ namespace DivideThread
 
         static void Main(string[] args)
         {
-            long sum = 0;
-            Stopwatch watch = new Stopwatch();
-            watch.Start();
-            GenerateBytes();
-            for (int i = 0; i < bytes.Length; i++)
-                sum += (int)bytes[i];
-            Console.WriteLine("The total result is {0}", sum);
-
-            watch.Stop();
-            Console.WriteLine("The total time is {0}", watch.Elapsed);
-
+            //long sum = 0;
             //Stopwatch watch = new Stopwatch();
             //watch.Start();
             //GenerateBytes();
+            //for (int i = 0; i < bytes.Length; i++)
+            //    sum += (int)bytes[i];
+            //Console.WriteLine("The total result is {0}", sum);
 
-            //Thread[] threads = new Thread[Environment.ProcessorCount];
-            //for (int i = 0; i < Environment.ProcessorCount; i++)
-            //{
-            //    threads[i] = new Thread(SumPortion);
-            //    threads[i].Start(i);
-            //}
-
-            //for (int i = 0; i < Environment.ProcessorCount; i++)
-            //{
-            //    threads[i].Join();
-            //}
-
-            //long sum = portionResults.Sum();
-            //Console.WriteLine("Total is {0}", sum);
             //watch.Stop();
             //Console.WriteLine("The total time is {0}", watch.Elapsed);
+
+            Stopwatch watch = new Stopwatch();
+            watch.Start();
+            GenerateBytes();
+
+            Thread[] threads = new Thread[Environment.ProcessorCount];
+            for (int i = 0; i < Environment.ProcessorCount; i++)
+            {
+                threads[i] = new Thread(SumPortion);
+                threads[i].Start(i);
+            }
+
+            for (int i = 0; i < Environment.ProcessorCount; i++)
+            {
+                threads[i].Join();
+            }
+
+            long sum = portionResults.Sum();
+            Console.WriteLine("Total is {0}", sum);
+            watch.Stop();
+            Console.WriteLine("The total time is {0}", watch.Elapsed);
         }
     }
 }

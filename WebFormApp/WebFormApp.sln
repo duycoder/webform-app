@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DivideThread", "DivideThrea
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloThread", "HelloThread\HelloThread.csproj", "{8DACFCF5-D8BD-483F-B70A-5482A20867F5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tut12.Threading.ProducerConsumer", "Tut12.Thread.ProducerConsumer\Tut12.Threading.ProducerConsumer.csproj", "{AF10C273-0703-463D-BD34-E8B938D3D173}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tut12.Theading.ProducerConsumerDemo", "Tut12.Theading.ProducerConsumerDemo\Tut12.Theading.ProducerConsumerDemo.csproj", "{EC2F112B-5387-4CCD-B819-E57D3A97F642}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +61,14 @@ Global
 		{8DACFCF5-D8BD-483F-B70A-5482A20867F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DACFCF5-D8BD-483F-B70A-5482A20867F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DACFCF5-D8BD-483F-B70A-5482A20867F5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF10C273-0703-463D-BD34-E8B938D3D173}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF10C273-0703-463D-BD34-E8B938D3D173}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF10C273-0703-463D-BD34-E8B938D3D173}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF10C273-0703-463D-BD34-E8B938D3D173}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC2F112B-5387-4CCD-B819-E57D3A97F642}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC2F112B-5387-4CCD-B819-E57D3A97F642}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC2F112B-5387-4CCD-B819-E57D3A97F642}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC2F112B-5387-4CCD-B819-E57D3A97F642}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
