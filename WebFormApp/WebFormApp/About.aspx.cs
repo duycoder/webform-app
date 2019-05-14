@@ -46,7 +46,7 @@ namespace WebFormApp
          */
         protected void Page_InitComplete(object sender, EventArgs e)
         {
-            lblEventName.Text += "InitComplete<br/>";
+            //lblEventName.Text += "InitComplete<br/>";
         }
 
         /*
@@ -194,16 +194,16 @@ namespace WebFormApp
 
         protected void btnSaveInfo_Clicked(object sender, EventArgs e)
         {
-            Response.Write(rdbTech.SelectedItem.Value);
+            //Response.Write(rdbTech.SelectedItem.Value);
         }
 
         void LoadGender()
         {
-            ListItem male = new ListItem("Nam", "1");
-            ddlGender.Items.Add(male);
+            //ListItem male = new ListItem("Nam", "1");
+            //ddlGender.Items.Add(male);
 
-            ListItem female = new ListItem("Nữ", "2");
-            ddlGender.Items.Add(female);
+            //ListItem female = new ListItem("Nữ", "2");
+            //ddlGender.Items.Add(female);
         }
 
         public delegate void Greeting(string input);
