@@ -16,7 +16,7 @@ namespace WebFormApp
 
         void ConfigControls()
         {
-            this.btnRegister.Click += btnRegister_Click;
+            //this.btnRegister.Click += btnRegister_Click;
             this.txtName.TextChanged += txtName_TextChanged;
             this.rdbFemale.CheckedChanged += rdb_CheckedChanged;
             this.txtName.Focus();
