@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Cities>
+  <City>
+    <Id>1</Id>
+    <Name>Hà Nội</Name>
+  </City>
+  <City>
+    <Id>2</Id>
+    <Name>Tp.Hồ Chí Minh</Name>
+  </City>
+  <City>
+    <Id>3</Id>
+    <Name>Đà Nẵng</Name>
+  </City>
+  <City>
+    <Id>4</Id>
+    <Name>Cần Thơ</Name>
+  </City>
+  <City>
+    <Id>5</Id>
+    <Name>Nam Định</Name>
+  </City>
+</Cities>
