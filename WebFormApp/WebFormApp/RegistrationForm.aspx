@@ -6,6 +6,31 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <table class="table table-striped table-bordered">
         <tr>
+            <td>Lịch làm việc</td>
+            <td>
+                <asp:TextBox runat="server" CssClass="form-control" ID="txtCalWorking"/>
+                <asp:Button runat="server" CssClass="btn btn-primary" Text="Chọn" Id="btnShowCalWorking"/>
+
+                <asp:Calendar ID="calWorking" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="190px" NextPrevFormat="FullMonth" Width="350px">
+                    <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
+                    <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
+                    <OtherMonthDayStyle ForeColor="#999999" />
+                    <SelectedDayStyle BackColor="#333399" ForeColor="White" />
+                    <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="4px" Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
+                    <TodayDayStyle BackColor="#CCCCCC" />
+                </asp:Calendar>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Quảng cáo
+            </td>
+            <td>
+               <asp:AdRotator runat="server" AdvertisementFile="~/Resources/Data/Ads.xml" KeywordFilter="hinet,google"/>
+            </td>
+        </tr>
+        <tr>
             <td>Họ tên
             </td>
             <td>

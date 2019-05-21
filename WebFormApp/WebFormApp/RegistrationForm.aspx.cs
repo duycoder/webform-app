@@ -22,6 +22,7 @@ namespace WebFormApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             if (!IsPostBack)
             {
                 LoadData();
@@ -82,11 +83,18 @@ namespace WebFormApp
 
                 ListItem li = new ListItem("--- Chọn ---", "-1");
                 ddlCountries.Items.Insert(0, li);
+=======
+            ConfigControls();
+            if (!IsPostBack)
+            {
+                this.calWorking.Visible = false;
+>>>>>>> 9a99d41e9017db3f5ccd267815ef9a94f7121d64
             }
         }
 
         void ConfigControls()
         {
+<<<<<<< HEAD
             this.rdbMale.CheckedChanged += rdb_CheckedChange;
             this.ckbCSharp.CheckedChanged += ckb_CheckedChange;
             this.ckbCSharp.Focus();
@@ -109,6 +117,25 @@ namespace WebFormApp
 
             this.cbRealTimeFC.SelectedIndexChanged += cbRealTimeFC_SelectedIndexChanged;
             this.cbRealTimeFC.AutoPostBack = true;
+=======
+            //this.btnRegister.Click += btnRegister_Click;
+            this.txtName.TextChanged += txtName_TextChanged;
+            this.rdbFemale.CheckedChanged += rdb_CheckedChanged;
+            this.txtName.Focus();
+            this.btnShowCalWorking.Click += btnShowCalWorking_Click;
+            this.calWorking.SelectionChanged += calWorking_SelectionChanged;
+        }
+
+        void calWorking_SelectionChanged(object sender, EventArgs e)
+        {
+            txtCalWorking.Text = calWorking.SelectedDate.ToString("dd/MM/yyyy");
+            calWorking.Visible = false;
+        }
+
+        void btnShowCalWorking_Click (object sender, EventArgs e)
+        {
+            this.calWorking.Visible = !this.calWorking.Visible;
+>>>>>>> 9a99d41e9017db3f5ccd267815ef9a94f7121d64
         }
 
         void cbRealTimeFC_SelectedIndexChanged(object sender, EventArgs e)
