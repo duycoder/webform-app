@@ -56,7 +56,8 @@
             <td>Đội bóng
             </td>
             <td>
-                <asp:CheckBoxList runat="server" ID="cblClub">
+                <asp:CheckBox runat="server" Text="Select All" ID="cbSelectAll"/>
+                <asp:CheckBoxList runat="server" ID="cblClub" RepeatDirection="Vertical">
                     <asp:ListItem Value="1">Miuwaukee Bucks</asp:ListItem>
                     <asp:ListItem Value="2">Portland Trail Blazzers</asp:ListItem>
                     <asp:ListItem Value="3">Toronto Raptors</asp:ListItem>
@@ -64,6 +65,74 @@
                 </asp:CheckBoxList>
             </td>
         </tr>
+        <tr>
+            <td>
+                ListBox
+            </td>
+            <td>
+                <asp:ListBox runat="server" ID="lbRapper" Rows="5" SelectionMode="Multiple" Width="300">
+                    <asp:ListItem Value="1" Text="Eminem"/>
+                    <asp:ListItem Value="2" Text="2Pac"/>
+                    <asp:ListItem Value="3" Text="Snoop Dogg"/>
+                    <asp:ListItem Value="4" Text="JayZ"/>
+                    <asp:ListItem Value="5" Text="Notorious B.I.G"/>
+                </asp:ListBox>
+            </td>
+        </tr>
+        <tr>
+            <td>Real time listbox checkbox</td>
+            <td>
+                <asp:CheckBoxList runat="server" ID="cbRealTimeFC">
+                    <asp:ListItem Value="1" Text="Real Madrid"/>
+                    <asp:ListItem Value="2" Text="Barcelona"/>
+                    <asp:ListItem Value="3" Text="Liverpool"/>
+                    <asp:ListItem Value="4" Text="Juventus"/>
+                    <asp:ListItem Value="5" Text="Manchester City"/>
+                </asp:CheckBoxList>
+
+                <asp:ListBox runat="server" ID="lbRealTimeFC" SelectionMode="Multiple"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Radio List:
+            </td>
+            <td>
+                <asp:RadioButtonList runat="server" ID="rblBestNbaPlayer" RepeatDirection="Vertical" RepeatLayout="UnorderedList">
+                    <asp:ListItem value="1" Text="Michael Jordan"/>
+                    <asp:ListItem value="2" Text="Kobe Bryant"/>
+                    <asp:ListItem value="3" Text="Lebron James"/>
+                </asp:RadioButtonList>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:Label runat="server" AssociatedControlID="fuAvatar" ID="lblAvatar" Text="Ảnh đại diện"/>
+            </td>
+            <td>
+                <asp:FileUpload runat="server" ID="fuAvatar"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Bulleted List:
+            </td>
+            <td>
+                <asp:BulletedList runat="server" 
+                    ID="bllAnimal"
+                    DisplayMode="HyperLink"
+                    BulletStyle="CustomImage" 
+                    BulletImageUrl="~/Resources/Images/edit.png" Target="_blank">
+                    <asp:ListItem Value="http://youtube.com" Text="Human"></asp:ListItem>
+                    <asp:ListItem Value="http://google.com" Text="AI"></asp:ListItem>
+                    <asp:ListItem Value="3" Text="Monkey"></asp:ListItem>
+                    <asp:ListItem Value="4" Text="Crocodile"></asp:ListItem>
+                    <asp:ListItem Value="5" Text="Horse"></asp:ListItem>
+                </asp:BulletedList>
+            </td>
+        </tr>
+
+
         <tr>
             <td colspan="2">
                 <asp:Button runat="server" ID="btnSubmit" Text="Đăng ký" />

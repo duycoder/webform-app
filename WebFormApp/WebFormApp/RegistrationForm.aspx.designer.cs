@@ -94,6 +94,15 @@ namespace WebFormApp {
         protected global::System.Web.UI.WebControls.DropDownList ddlCities;
         
         /// <summary>
+        /// cbSelectAll control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox cbSelectAll;
+        
+        /// <summary>
         /// cblClub control.
         /// </summary>
         /// <remarks>
@@ -101,6 +110,69 @@ namespace WebFormApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBoxList cblClub;
+        
+        /// <summary>
+        /// lbRapper control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lbRapper;
+        
+        /// <summary>
+        /// cbRealTimeFC control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList cbRealTimeFC;
+        
+        /// <summary>
+        /// lbRealTimeFC control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lbRealTimeFC;
+        
+        /// <summary>
+        /// rblBestNbaPlayer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButtonList rblBestNbaPlayer;
+        
+        /// <summary>
+        /// lblAvatar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAvatar;
+        
+        /// <summary>
+        /// fuAvatar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload fuAvatar;
+        
+        /// <summary>
+        /// bllAnimal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.BulletedList bllAnimal;
         
         /// <summary>
         /// btnSubmit control.

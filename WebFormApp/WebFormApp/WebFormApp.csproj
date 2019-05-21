@@ -132,6 +132,7 @@
     <Content Include="Resources\Images\avatar.jpg" />
     <Content Include="Resources\Images\delete.png" />
     <Content Include="Resources\Images\edit.png" />
+    <Content Include="Resources\Images\Uploaded\2013-12-30%281%29.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
