@@ -12,6 +12,10 @@ namespace WebFormApp
         protected void Page_Load(object sender, EventArgs e)
         {
             ConfigControls();
+            if (!IsPostBack)
+            {
+                this.calWorking.Visible = false;
+            }
         }
 
         void ConfigControls()
@@ -20,6 +24,19 @@ namespace WebFormApp
             this.txtName.TextChanged += txtName_TextChanged;
             this.rdbFemale.CheckedChanged += rdb_CheckedChanged;
             this.txtName.Focus();
+            this.btnShowCalWorking.Click += btnShowCalWorking_Click;
+            this.calWorking.SelectionChanged += calWorking_SelectionChanged;
+        }
+
+        void calWorking_SelectionChanged(object sender, EventArgs e)
+        {
+            txtCalWorking.Text = calWorking.SelectedDate.ToString("dd/MM/yyyy");
+            calWorking.Visible = false;
+        }
+
+        void btnShowCalWorking_Click (object sender, EventArgs e)
+        {
+            this.calWorking.Visible = !this.calWorking.Visible;
         }
 
         void txtName_TextChanged(object sender, EventArgs e)

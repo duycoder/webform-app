@@ -128,10 +128,14 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Resources\Data\Ads.xml" />
     <Content Include="Resources\Data\City.xml" />
     <Content Include="Resources\Images\avatar.jpg" />
     <Content Include="Resources\Images\delete.png" />
     <Content Include="Resources\Images\edit.png" />
+    <Content Include="Resources\Images\google.jpg" />
+    <Content Include="Resources\Images\hinet.png" />
+    <Content Include="Resources\Images\youtube.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
